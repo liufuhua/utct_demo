@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/home_fragment">
+
+    <fragment
+        android:id="@+id/home_fragment"
+        android:name="com.jw.utct_demo.HomeFragment"
+        android:label="HomeFragment"
+        tools:layout="@layout/fragment_home"
+        >
+        <action
+            android:id="@+id/action_home_fragment_to_patient_list"
+            app:destination="@id/patient_list"
+            />
+        <action
+            android:id="@+id/action_home_fragment_to_sync_fragment"
+            app:destination="@id/syncFragment"
+            />
+        <action
+            android:id="@+id/action_home_fragment_to_periodic_sync_fragment"
+            app:destination="@id/periodicSyncFragment"
+            />
+        <action
+            android:id="@+id/action_home_fragment_to_crud_operation_fragment"
+            app:destination="@id/FirstFragment"
+            />
+    </fragment>
+
+    <fragment
+        android:id="@+id/patient_list"
+        android:label="Patient List"
+        android:name="com.jw.utct_demo.PatientListFragment"
+        tools:layout="@layout/patient_list_view"
+        >
+        <action
+            android:id="@+id/navigate_to_product_detail"
+            app:destination="@id/patient_details"
+            />
+        <action
+            android:id="@+id/action_patient_list_to_addPatientFragment"
+            app:destination="@id/addPatientFragment"
+            />
+    </fragment>
+
+    <fragment
+        android:id="@+id/patient_details"
+        android:label="Patient Details"
+        android:name="com.jw.utct_demo.PatientDetailsFragment"
+        tools:layout="@layout/patient_detail"
+        >
+        <action
+            android:id="@+id/navigate_to_edit_patient"
+            app:destination="@id/editPatientFragment"
+            />
+        <action
+            android:id="@+id/action_patient_details_to_screenEncounterFragment"
+            app:destination="@id/screenerEncounterFragment"
+            />
+        <argument android:name="patient_id" app:argType="string" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/screenerEncounterFragment"
+        android:label="Screen Encounter"
+        android:name="com.jw.utct_demo.ScreenerFragment"
+        tools:layout="@layout/screener_encounter_fragment"
+        >
+        <argument android:name="patient_id" app:argType="string" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/addPatientFragment"
+        android:label="Add Patient"
+        android:name="com.jw.utct_demo.AddPatientFragment"
+        tools:layout="@layout/add_patient_fragment"
+        />
+
+    <fragment
+        android:id="@+id/editPatientFragment"
+        android:label="Edit Patient"
+        android:name="com.jw.utct_demo.EditPatientFragment"
+        tools:layout="@layout/add_patient_fragment"
+        >
+        <argument android:name="patient_id" app:argType="string" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/syncFragment"
+        android:name="com.jw.utct_demo.SyncFragment"
+        android:label="fragment_manual_sync"
+        tools:layout="@layout/sync"
+        />
+
+    <fragment
+        android:id="@+id/FirstFragment"
+        android:name="com.jw.utct_demo.FirstFragment"
+        android:label="fragment_layout"
+        tools:layout="@layout/fragment_first"
+        />
+
+    <fragment
+        android:id="@+id/periodicSyncFragment"
+        android:name="com.jw.utct_demo.PeriodicSyncFragment"
+        android:label="fragment_periodic_sync"
+        tools:layout="@layout/periodic_sync"
+        />
+</navigation>
